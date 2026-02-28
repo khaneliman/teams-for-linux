@@ -80,14 +80,14 @@ function whenIframeReady(callback) {
 
 function keyDownEventHandler(event) {
   const keyName = event.key;
-  if (keyName === "Control" || keyName === "Alt") {
+  if (keyName === "Control" || keyName === "Alt" || keyName === "Meta") {
     return;
   }
 
-  // Only process shortcuts when a modifier key (Ctrl or Alt) is held,
+  // Only process shortcuts when a modifier key (Ctrl, Alt, or Cmd) is held,
   // since all shortcuts require one. This avoids interfering with normal
   // text input (e.g. the ":" emoji picker trigger in Teams).
-  if (!event.ctrlKey && !event.altKey) {
+  if (!event.ctrlKey && !event.altKey && !event.metaKey) {
     return;
   }
 
